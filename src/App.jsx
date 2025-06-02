@@ -1,32 +1,27 @@
 import Die from './Die.jsx'
+import {useState} from 'react'
 
 function App() {
 
+  let [newDice, setNewDice] = useState(generateAllNewDice())
+
   function generateAllNewDice() {
     let arr = []
-    for (let i = 0; i<6; i++){
-      let num = Math.floor(Math.random()*10)+1;
+    for (let i = 0; i<10; i++){
+      let num = Math.ceil(Math.random()*6);
       arr.push(num)
     }
     return arr;
   }
 
-  console.log(generateAllNewDice())
 
   return (
     <main>
       <section className='numbers'>
-        <Die value={1}/>
-        <Die value={2}/>
-        <Die value={3}/>
-        <Die value={4}/>
-        <Die value={5}/>
-        <Die value={6}/>
-        <Die value={7}/>
-        <Die value={8}/>
-        <Die value={9}/>
-        <Die value={10}/>
+        {newDice.map(el => <Die value={el}/> )}
       </section>
+
+      <button onClick={() => setNewDice(generateAllNewDice())} className='rollBtn'>Roll</button>
     </main>
   )
 }
