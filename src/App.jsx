@@ -10,7 +10,7 @@ function App() {
     let arr = []
     for (let i = 0; i<10; i++){
       let num = Math.ceil(Math.random()*6);
-      arr.push({value: num, isHeld: false, id: nanoid()})
+      arr.push({value: num, isHeld: true, id: nanoid()})
     }
     return arr;
   }
@@ -19,7 +19,7 @@ function App() {
   return (
     <main>
       <section className='numbers'>
-        {newDice.map(el => <Die value={el.value} key={el.id}/> )}
+        {newDice.map(el => <Die value={el.value} key={el.id} isHeld={el.isHeld}/> )}
       </section>
 
       <button onClick={() => setNewDice(generateAllNewDice())} className='rollBtn'>Roll</button>

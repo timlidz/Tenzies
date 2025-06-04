@@ -49,7 +49,7 @@ main {
   cursor: pointer;
 }
 
-.numberBtn:hover, .numberBtn:active {
+.numberBtn:hover, .numberBtn:active, .isHeld {
   background-color: #59E391;
 }
 
@@ -79,3 +79,4 @@ section.numbers {
 .rollBtn:hover{
   background-color: #2e1e96;
 }
+
