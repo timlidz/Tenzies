@@ -5,7 +5,11 @@ function Die(props){
 
    return (
       <>
-         <button onClick={() => props.hold(props.id)} className={classList}>{props.value}</button>
+         <button onClick={() => props.hold(props.id)} className={classList}
+         aria-pressed={props.isHeld}
+         aria-label={`Die with value ${props.value}, 
+         ${props.isHeld ? "held" : "not held"}`}
+         >{props.value}</button>
       </>
    )
 
