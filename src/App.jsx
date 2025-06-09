@@ -5,6 +5,13 @@ import { nanoid } from 'nanoid'
 function App() {
 
   let [newDice, setNewDice] = useState(generateAllNewDice())
+  
+  if (
+    newDice.map(el => el.isHeld).reduce((end, curr) => end && curr, true) && 
+    newDice.every(die => die.value === newDice[0].value)
+      ) {
+        console.log("Game Won")
+      }
 
   function generateAllNewDice() {
     let arr = []
