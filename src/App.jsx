@@ -5,7 +5,9 @@ import Confetti from 'react-confetti'
 
 function App() {
 
-  let [newDice, setNewDice] = useState(generateAllNewDice())
+  let [newDice, setNewDice] = useState(() => generateAllNewDice())
+  // useState(() => generateAllNewDice()) will not rerun the function every time state changes
+
   let gameWon = false
   
     if (
@@ -31,9 +33,13 @@ function App() {
   }
 
   function rollDice() {
-    setNewDice(prev => prev.map((el) => el.isHeld === false ? 
-                                {...el, value:`${Math.ceil(Math.random()*6)}`} 
-                                : el))
+    if (gameWon) {
+      gameWon = false
+      setNewDice(generateAllNewDice())
+    } 
+      setNewDice(prev => prev.map((el) => el.isHeld === false ? 
+                                  {...el, value:`${Math.ceil(Math.random()*6)}`} : el))
+
   }
 
 
