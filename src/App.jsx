@@ -14,21 +14,28 @@ function App() {
     }
     return arr;
   }
+
   
   function hold(id) {
-
     setNewDice(prev => prev.map((el) => el.id === id ? {...el,isHeld : !el.isHeld} : el))
+  }
 
+  function rollDice() {
+    setNewDice(prev => prev.map((el) => el.isHeld === false ? 
+                                {...el, value:`${Math.ceil(Math.random()*6)}`} 
+                                : el))
   }
 
 
   return (
     <main>
+      <h1 className="title">Tenzies</h1>
+      <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
       <section className='numbers'>
         {newDice.map(el => <Die value={el.value} key={el.id} isHeld={el.isHeld} hold={hold} id={el.id}/> )}
       </section>
 
-      <button onClick={() => setNewDice(generateAllNewDice())} className='rollBtn'>Roll</button>
+      <button onClick={rollDice} className='rollBtn'>Roll</button>
     </main>
   )
 }

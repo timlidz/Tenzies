@@ -28,12 +28,26 @@ main {
   height: 100%;
   border-radius: 5px;
   display: flex;
-  gap: 15%;
+  gap: 5%;
   flex-direction: column;
-  justify-content: center;
+  justify-content:  center;
   align-items: center;
+  padding: 20px 0;
 }
 
+.title {
+  font-size: 40px;
+
+}
+
+.instructions {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin-top: 0;
+  text-align: center;
+  padding: 0 70px;
+  padding-bottom: 10px;
+}
 
 .numberBtn {
   width: 40px;
@@ -55,8 +69,9 @@ main {
 
 section.numbers {
   display: grid;
-  grid-template: 1fr 1fr / 1fr 1fr 1fr 1fr 1fr;
+  grid-template: auto auto / repeat(5, 1fr);
   gap: 1.5em;
+  padding-bottom: 10px;
 }
 
 
