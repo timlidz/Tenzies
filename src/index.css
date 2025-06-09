@@ -63,6 +63,19 @@ main {
   cursor: pointer;
 }
 
+[id*="pip"]{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40px 40px;
+}
+#pip-1{background-image: url('./assets/pip-1.png');}
+#pip-2{  background-image: url('./assets/pip-2.png');}
+#pip-3{background-image: url('./assets/pip-3.png');}
+#pip-4{background-image: url('./assets/pip-4.png');}
+#pip-5{background-image: url('./assets/pip-5.png');}
+#pip-6{background-image: url('./assets/pip-6.png');}
+
+
 .numberBtn:hover, .numberBtn:active, .isHeld {
   background-color: #59E391;
 }
@@ -96,6 +109,10 @@ section.numbers {
 .rollBtn:hover{
   background-color: #2e1e96;
 }
+
+
+
+
 
 .counter {
   font-size: 15px;

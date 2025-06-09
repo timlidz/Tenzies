@@ -16,7 +16,7 @@ function App() {
     let arr = []
     for (let i = 0; i<10; i++){
       let num = Math.ceil(Math.random()*6);
-      arr.push({value: 5, isHeld: false, id: nanoid()})
+      arr.push({value: num, isHeld: false, id: nanoid()})
     }
     return arr;
   }
@@ -52,7 +52,6 @@ function App() {
 
       <button onClick={rollDice} className='rollBtn'>{gameWon ? "New Game" : "Roll"}</button>
       <div className='counter'>
-          <p>Time elapsed: <span>00:20</span></p>
           <p>Number of clicks: <span>{clicks}</span></p>
       </div>
     </main>

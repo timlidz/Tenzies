@@ -1,3 +1,4 @@
+
 function Die(props){
 
    const classList = props.isHeld ? 'numberBtn isHeld' : 'numberBtn'
@@ -5,11 +6,11 @@ function Die(props){
 
    return (
       <>
-         <button onClick={() => props.hold(props.id)} className={classList}
+         <button onClick={() => props.hold(props.id)} className={classList} id={'pip-'+ props.value}
          aria-pressed={props.isHeld}
          aria-label={`Die with value ${props.value}, 
          ${props.isHeld ? "held" : "not held"}`}
-         >{props.value}</button>
+         ></button>
       </>
    )
 
