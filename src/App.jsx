@@ -6,23 +6,17 @@ import Confetti from 'react-confetti'
 function App() {
 
   let [newDice, setNewDice] = useState(() => generateAllNewDice())
+  let [clicks, setClicks] = useState(0)
   // useState(() => generateAllNewDice()) will not rerun the function every time state changes
 
-  let gameWon = false
-  
-    if (
-    newDice.map(el => el.isHeld).reduce((end, curr) => end && curr, true) && 
-    newDice.every(die => die.value === newDice[0].value)
-      ) {
-        console.log("Game Won")
-        gameWon = true
-      }
+    const gameWon = newDice.every(val => val.isHeld) && newDice.every(die => die.value === newDice[0].value)
+
 
   function generateAllNewDice() {
     let arr = []
     for (let i = 0; i<10; i++){
       let num = Math.ceil(Math.random()*6);
-      arr.push({value: num, isHeld: false, id: nanoid()})
+      arr.push({value: 5, isHeld: false, id: nanoid()})
     }
     return arr;
   }
@@ -34,12 +28,13 @@ function App() {
 
   function rollDice() {
     if (gameWon) {
-      gameWon = false
       setNewDice(generateAllNewDice())
-    } 
+      setClicks(0)
+    } else {
+      setClicks(prev => prev+1)
       setNewDice(prev => prev.map((el) => el.isHeld === false ? 
                                   {...el, value:`${Math.ceil(Math.random()*6)}`} : el))
-
+    }
   }
 
 
@@ -56,6 +51,10 @@ function App() {
       </section>
 
       <button onClick={rollDice} className='rollBtn'>{gameWon ? "New Game" : "Roll"}</button>
+      <div className='counter'>
+          <p>Time elapsed: <span>00:20</span></p>
+          <p>Number of clicks: <span>{clicks}</span></p>
+      </div>
     </main>
   )
 }

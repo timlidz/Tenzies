@@ -19,7 +19,7 @@ body {
 div#root {
   height: 100%;
   width: 100%;
-  max-height: 400px;
+  max-height: 500px;
   max-width: 400px;
 }
 
@@ -88,12 +88,28 @@ section.numbers {
   white-space: nowrap;
   width: auto;
   padding: 6px 21px; 
+  margin: 10px 0 15px 0;
 }
 
 
 
 .rollBtn:hover{
   background-color: #2e1e96;
+}
+
+.counter {
+  font-size: 15px;
+}
+
+.counter p{
+  display: inline;
+  margin-right: 10px;
+}
+
+.counter p span {
+  color: rgb(129, 59, 59);
+  font-style: italic;
+  font-weight: bold;
 }
 
 
