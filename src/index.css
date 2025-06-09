@@ -76,7 +76,6 @@ section.numbers {
 
 
 .rollBtn {
-  width: 100px;
   height: 50px;
   font-size: 1.2rem;
   letter-spacing: 0.1em;
@@ -86,7 +85,9 @@ section.numbers {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-
+  white-space: nowrap;
+  width: auto;
+  padding: 6px 21px; 
 }
 
 
