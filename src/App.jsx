@@ -9,7 +9,7 @@ function App() {
   let [clicks, setClicks] = useState(0)
   // useState(() => generateAllNewDice()) will not rerun the function every time state changes
 
-    const gameWon = newDice.every(val => val.isHeld) && newDice.every(die => die.value === newDice[0].value)
+  const gameWon = newDice.every(val => val.isHeld) && newDice.every(die => die.value === newDice[0].value)
 
 
   function generateAllNewDice() {
@@ -27,13 +27,14 @@ function App() {
   }
 
   function rollDice() {
-    if (gameWon) {
+    if (!gameWon) {
+      setClicks(prev => prev+1)
+      setNewDice(prev => prev.map((el) => el.isHeld  ? 
+                                                    el :
+                                {...el, value:Math.ceil(Math.random()*6) } ))
+    } else {
       setNewDice(generateAllNewDice())
       setClicks(0)
-    } else {
-      setClicks(prev => prev+1)
-      setNewDice(prev => prev.map((el) => el.isHeld === false ? 
-                                  {...el, value:`${Math.ceil(Math.random()*6)}`} : el))
     }
   }
 
